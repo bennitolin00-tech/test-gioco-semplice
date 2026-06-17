@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>stop demo</title>
+        <style>
+            div{
+                position: absolute;
+                background-color: #abc;
+                left: 0px;
+                top: 30px;
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    </head>
+    <body>
+<button id="go">Go</button>
+        <button id="stop">Stop!</button>
+        <button id="back">Back</button>
+        <button id="jump">Jump</button>
+        <button id="down">Down</button>
+        <button id="up">Up</button>
+        <div class="block"></div>
+
+    <script>
+        // Start animation
+        $("#go").on("click", function(){
+            $(".block").animate({left: "+=100px"}, 500);
+        });
+
+        // Stop animation when button is clicked
+        $("#stop").on("click", function(){
+            $(".block").stop();
+        });
+
+        // Start animation in the opposite direction
+        $("#back").on("click", function(){
+            $(".block").animate({left: "-=100px"}, 500);
+        });
+
+        // Jump animation
+        $("#jump").on("click",function(){
+            $(".block").animate({top: "-=100px"}, 500);
+            $(".block").animate({top: "+=100px"}, 500);
+        });
+
+        // Down animation
+        $("#down").on("click",function(){
+            $(".block").animate({top: "+=100px"}, 500);
+        });
+
+        // Up animation
+        $("#up").on("click",function(){
+            $(".block").animate({top: "-=100px"}, 500);
+        });
+
+    </script>
+    </body>
+</html>
