@@ -13,43 +13,16 @@
                 height: 60px;
                 margin: 5px;
                 border: 1px solid black;
-                border-radius: 30px;
+                border-radius: 30px; 
             }
 
-            #go{
-                background-color: #b0b6a6;
-                border-radius: 15px;
-                padding: 10px;
-            }
-            #stop{
-                background-color: #b0b6a6;;
-                border-radius: 15px;
-                padding: 10px;
-            }
-            #back{
-                background-color: #b0b6a6;;
-                border-radius: 15px;
-                padding: 10px;
-            }
-            #jump{
-                background-color: #b0b6a6;;
-                border-radius: 15px;
-                padding: 10px;
-            }
-            #down{
-                background-color: #b0b6a6;;
-                border-radius: 15px;
-                padding: 10px;
-            }
-            #up{
-                background-color: #b0b6a6;;
-                border-radius: 15px;
-                padding: 10px;
-            }
             #go, #stop, #back, #jump, #down, #up{
                 margin: 5px;
                 float: right;
                 margin-top:400px;
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
             }
         </style>
         <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
@@ -81,8 +54,8 @@
 
         // Jump animation
         $("#jump").on("click",function(){
-            $(".block").animate({top: "-=100px"}, 500);
-            $(".block").animate({top: "+=100px"}, 500);
+            $(".block").animate({top: "-=200px"}, 500);
+            $(".block").animate({top: "+=200px"}, 500);
         });
 
         // Down animation
