@@ -2,22 +2,60 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>stop demo</title>
+        <title>go, stop and jump demo</title>
         <style>
             div{
                 position: absolute;
-                background-color: #abc;
-                left: 0px;
-                top: 30px;
+                background-color: #d00000;
+                left: 20px;
+                top: 100px;
                 width: 60px;
                 height: 60px;
                 margin: 5px;
+                border: 1px solid black;
+                border-radius: 30px;
+            }
+
+            #go{
+                background-color: #b0b6a6;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            #stop{
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            #back{
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            #jump{
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            #down{
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            #up{
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            #go, #stop, #back, #jump, #down, #up{
+                margin: 5px;
+                float: right;
+                margin-top:400px;
             }
         </style>
         <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
     </head>
     <body>
-<button id="go">Go</button>
+        <button id="go">Go</button>
         <button id="stop">Stop!</button>
         <button id="back">Back</button>
         <button id="jump">Jump</button>
@@ -56,6 +94,18 @@
         $("#up").on("click",function(){
             $(".block").animate({top: "-=100px"}, 500);
         });
+
+        // Fade out block when clicked 
+        $("div.block").on("dblclick",function(){
+            $(this).fadeOut("slow");
+            $(this).fadeIn("slow");
+        }); 
+
+        //Slide the block when clicked
+        $("div.block").on("click",function(){
+            $(this).slideUp();
+            $(this).slideDown();
+        })
 
     </script>
     </body>
