@@ -25,8 +25,12 @@
                 padding: 10px;
             }
         </style>
-        <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
-    </head>
+        <link rel="stylesheet" href="../css/style.css"/>
+        <link rel ="stylesheet" href="../css/jquery-ui.css"/>
+        <script src="../js/jquery-4.0.0.js"></script>
+        <script src= "../js/jquery-ui.js"></script>
+        
+        </head>
     <body>
         <button id="go">Go</button>
         <button id="stop">Stop!</button>
@@ -34,9 +38,21 @@
         <button id="jump">Jump</button>
         <button id="down">Down</button>
         <button id="up">Up</button>
-        <div class="block"></div>
+        <div id= "effect" class="block"> </div>
+
+        <!-- <div id="dialog" title="Basic dialog">
+        <p>Hello, I'm a ball!</p>
+        </div> -->
 
     <script>
+       /* $( function() {
+            $( "#dialog" ).dialog();
+        } );                             it doesn't work (whyyyyy T.T)*/ 
+
+         $( function() {
+                $( ".block" ).draggable();
+            } );
+
         // Start animation
         $("#go").on("click", function(){
             $(".block").animate({left: "+=100px"}, 500);
@@ -69,10 +85,10 @@
         });
 
         // Fade out block when clicked 
-        $("div.block").on("dblclick",function(){
+        /*$("div.block").on("dblclick",function(){
             $(this).fadeOut("slow");
             $(this).fadeIn("slow");
-        }); 
+        }); */
 
         //Slide the block when clicked
         $("div.block").on("click",function(){
@@ -80,6 +96,51 @@
             $(this).slideDown();
         })
 
+    $( function() {
+        // run the currently selected effect
+        function runEffect() {
+        // get effect type from
+        var selectedEffect = $( "#effectTypes" ).val();
+    
+        // Most effect types need no options passed by default
+        var options = {};
+        // some effects have required parameters
+        if ( selectedEffect === "scale" ) {
+            options = { percent: 50 };
+        } else if ( selectedEffect === "size" ) {
+            options = { to: { width: 200, height: 60 } };
+        }
+    
+        // Run the effect
+        $( "#effect" ).toggle( selectedEffect, options, 500 );
+        };
+    
+        // Set effect from select menu value
+        $( "#button" ).on( "click", function() {
+        runEffect();
+        });
+    } );
+  
     </script>
+
+    <select name="effects" id="effectTypes">
+    <option value="blind">Blind</option>
+    <option value="bounce">Bounce</option>
+    <option value="clip">Clip</option>
+    <option value="drop">Drop</option>
+    <option value="explode">Explode</option>
+    <option value="fade">Fade</option>
+    <option value="fold">Fold</option>
+    <option value="highlight">Highlight</option>
+    <option value="puff">Puff</option>
+    <option value="pulsate">Pulsate</option>
+    <option value="scale">Scale</option>
+    <option value="shake">Shake</option>
+    <option value="size">Size</option>
+    <option value="slide">Slide</option>
+    </select>
+    
+    <button id="button" class="block">Run Effect</button>
+
     </body>
 </html>
