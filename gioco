@@ -24,6 +24,13 @@
                 border-radius: 15px;
                 padding: 10px;
             }
+
+            #btn, #effectTypes, #btn-color{
+                background-color: #b0b6a6;;
+                border-radius: 15px;
+                padding: 10px;
+            }
+
         </style>
         <link rel="stylesheet" href="../css/style.css"/>
         <link rel ="stylesheet" href="../css/jquery-ui.css"/>
@@ -116,10 +123,33 @@
         };
     
         // Set effect from select menu value
-        $( "#button" ).on( "click", function() {
+        $( "#btn" ).on( "click", function() {
         runEffect();
         });
     } );
+
+    //Change color
+ var url = "https://code.jquery.com/color/jquery.color-3.0.0.min.js";
+$.getScript( url, function() {
+  $( "#btn-color" ).on( "click", function() {
+    $( ".block" )
+      .animate({
+        backgroundColor: "rgb(255, 180, 180)"
+      }, 1000 )
+      .delay( 500 )
+      .animate({
+        backgroundColor: "olive"
+      }, 1000 )
+      .delay( 500 )
+      .animate({
+        backgroundColor: "#00f"
+      }, 1000 )
+      .delay( 500 )
+      .animate({
+        backgroundColor: "#d00000"
+      }, 1000 );
+  });
+});
   
     </script>
 
@@ -140,7 +170,8 @@
     <option value="slide">Slide</option>
     </select>
     
-    <button id="button" class="block">Run Effect</button>
+    <button id="btn">Run Effect</button>
+    <button id="btn-color">&raquo; Change Color</button>
 
     </body>
 </html>
